@@ -1,0 +1,53 @@
+FlatLog DEFINITIONS ::= BEGIN
+
+	UnixtimeUs ::= INTEGER
+
+	Severity ::= ENUMERATED {
+		unspecified (0),
+		trace (1),
+		debug (5),
+		info (9),
+		warn (13),
+		error (17),
+		fatal (21)
+	}
+
+	MessageId ::= INTEGER -- use 0 for "no id(null)"
+
+	IntPair ::= SEQUENCE {
+		key IA5String,
+		val INTEGER
+	}
+
+	BoolPair ::= SEQUENCE {
+		key IA5String,
+		val BOOLEAN
+	}
+
+	StrPair ::= SEQUENCE {
+		key IA5String,
+		val UTF8String
+	}
+
+	IntMap ::= SEQUENCE OF IntPair
+	StrMap ::= SEQUENCE OF StrPair
+	BooMap ::= SEQUENCE OF BoolPair
+
+	GenericItems ::= SEQUENCE {
+		bools BooMap,
+		integers IntMap,
+		strings StrMap
+	}
+
+	LogItem ::= SEQUENCE {
+		timestamp UnixtimeUs,
+		--severity Severity,
+		severity INTEGER,
+		message UTF8String,
+		id MessageId,
+		resource GenericItems,
+		attributes GenericItems,
+		extra StrMap
+	}
+
+END
