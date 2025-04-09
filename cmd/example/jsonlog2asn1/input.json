@@ -1,0 +1,1 @@
+{"timestamp":"2025-04-08T01:45:13.012345Z","severity":"INFO","message":"test message","id":299792458,"tags":"http,read-only","process.pid":42,"service.version":"1.0.0","debug":true,"cache.hit":false,"db.upserted":599,"http.content.length":634,"http.status.code":200,"user.id":"JD","http.request.method":"GET"}
